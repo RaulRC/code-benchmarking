@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import logging
 import argparse
 import sys
@@ -5,8 +6,8 @@ import sys
 def parse(argv):
     logging.info("Parsing arguments")
     parser = argparse.ArgumentParser(description="Coin problem")
-    parser.add_argument('--amount', dest='amount', type=int, help='Total amount to change (e.g: 245)')
-    parser.add_argument('--coins', dest='coins', nargs="+", type=int, help='List of coins (e.g: 2 3 4 5)')
+    parser.add_argument('--amount', dest='amount', type=int, help='Total amount to change (e.g: 245)', required=True)
+    parser.add_argument('--coins', dest='coins', nargs="+", type=int, help='List of coins (e.g: 2 3 4 5)', required=True)
     return parser.parse_args(argv)
 
 
@@ -31,7 +32,7 @@ def search(n, p, visited):
                     total = 1 + search(n - i, subset, visited)
                     visited += [n - i]
                     if total <=0:
-                        total = -1
+                        myn = -1
                     elif total < myn:
                         myn = total
         except Exception as e:
