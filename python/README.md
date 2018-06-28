@@ -85,3 +85,23 @@ n: 32   p: [4, 3, 2]
 subset: [4, 3, 2]
 FINAL RESULT: 9
 ```
+
+#### More examples
+
+##### Impossible case
+
+```bash
+$ python coin_problem.py --amount 12 --coins 10 5
+```
+
+
+```bash
+n: 12   p: [10, 5]
+subset: [10, 5]
+n: 2    p: [10, 5]
+2 < min(p): 5
+n: 7    p: [10, 5]
+subset: [5]
+FINAL RESULT: -1
+
+```
